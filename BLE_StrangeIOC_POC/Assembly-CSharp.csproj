@@ -61,6 +61,8 @@
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Model\DeviceModel.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Service\Contracts\IBLE_Service.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Service\Implementation\BLE_Service.cs" />
+     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\AppStatusMediator.cs" />
+     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\AppStatusView.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\EventLogMediator.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\EventLogView.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\ScanBtnMediator.cs" />

@@ -29,7 +29,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext
             injectionBinder.Bind<IBLE_Service>().To<BLE_Service>().ToSingleton();
             
             //ViewMediator
-            //mediationBinder.Bind<AppStatusView>().To<AppStatusMediator>();
+            mediationBinder.Bind<AppStatusView>().To<AppStatusMediator>();
             mediationBinder.Bind<ScanBtnView>().To<ScanBtnMediator>();
             mediationBinder.Bind<EventLogView>().To<EventLogMediator>();
             

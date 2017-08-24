@@ -14,6 +14,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
         public Button ScanButton;
         internal const string CLICK_EVENT = "CLICK_EVENT";
         internal const string SCANNING_TIME_FINISHED = "SCANNING_TIME_FINISHED";
+        internal const string RUNNING_SCAN = "RUNNING_SCAN";
         const int MAX_SCANSECONDS = 5;
         int currSeconds = 0;
         public void Init()
@@ -39,6 +40,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
                     ScanButton.interactable = false;
                 }
                 currSeconds++;
+                dispatcher.Dispatch(RUNNING_SCAN, string.Format("Sanning for devices, time left {0}", MAX_SCANSECONDS-currSeconds));
                 yield return new WaitForSeconds(1f);
             }
             ScanButton.interactable = true;

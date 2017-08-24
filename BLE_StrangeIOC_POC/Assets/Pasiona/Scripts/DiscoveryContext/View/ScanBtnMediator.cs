@@ -22,6 +22,12 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
         {
             View.dispatcher.UpdateListener(value, ScanBtnView.CLICK_EVENT, onStartScanningClick);
             View.dispatcher.UpdateListener(value, ScanBtnView.SCANNING_TIME_FINISHED, onScanningTimeFinished);
+            View.dispatcher.UpdateListener(value, ScanBtnView.RUNNING_SCAN, onScanningRunning);
+        }
+
+        private void onScanningRunning(IEvent payload)
+        {
+            dispatcher.Dispatch(ApplicationEvents.SCANNING_UPDATE, payload.data);
         }
 
         private void onStartScanningClick(IEvent payload)

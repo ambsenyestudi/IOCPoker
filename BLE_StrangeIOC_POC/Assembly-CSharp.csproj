@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Commands\DeviceSelectedCommand.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Commands\StartScanningCommand.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Commands\StopScanningCommand.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Events\ApplicationEvents.cs" />
@@ -69,6 +70,8 @@
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\EventLogView.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\ScanBtnMediator.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\ScanBtnView.cs" />
+     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\SelectedDeviceMediator.cs" />
+     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\SelectedDeviceView.cs" />
      <Compile Include="Assets\StarTechPlus\uBleBridge\Unity Code\Examples\Advertisement Data\AdvertisementData.cs" />
      <Compile Include="Assets\StarTechPlus\uBleBridge\Unity Code\Examples\Blue-Rx by Star Technologies\BlueRx.cs" />
      <Compile Include="Assets\StarTechPlus\uBleBridge\Unity Code\Examples\SensorTag 2650 by Texsas Instrument\MadwickAhrs.cs" />

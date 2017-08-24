@@ -33,6 +33,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext
             mediationBinder.Bind<ScanBtnView>().To<ScanBtnMediator>();
             mediationBinder.Bind<EventLogView>().To<EventLogMediator>();
             mediationBinder.Bind<AvailableDeviceListView>().To<AvailableDeviceListMediator>();
+            mediationBinder.Bind<SelectedDeviceView>().To<SelectedDeviceMediator>();
 
             //StartCommand
             //commandBinder.Bind(ContextEvent.START).To<StartAppCommand>().To<StartGameCommand>().Once().InSequence();
@@ -41,7 +42,8 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext
             //Event to Command
             commandBinder.Bind(BLE_Events.BLE_START_SCANNING).To<StartScanningCommand>();
             commandBinder.Bind(BLE_Events.BLE_STOP_SCANNING).To<StopScanningCommand>();
-            
+            commandBinder.Bind(ApplicationEvents.DEVICE_SELECTED).To<DeviceSelectedCommand>();
+
         }
     }
 }

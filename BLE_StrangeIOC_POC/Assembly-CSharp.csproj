@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Commands\DeviceSelectedCommand.cs" />
+     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Commands\NoDeviceSelectedCommand.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Commands\StartScanningCommand.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Commands\StopScanningCommand.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Events\ApplicationEvents.cs" />

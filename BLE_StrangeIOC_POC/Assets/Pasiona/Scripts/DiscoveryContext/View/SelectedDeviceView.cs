@@ -15,6 +15,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
         private List<DeviceModel> _deviceList;
         private bool _isListUpdating = false;
         public const string NEW_SELECTION = "NEW_SELECTION";
+        public const string NONE_SELECTION = "NONE_SELECTION";
         public void Initialize()
         {
             _deviceList = new List<DeviceModel> { null};
@@ -60,9 +61,13 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
         private void OnValueSelected(int val)
         {
             DeviceModel model = _deviceList[val];
-            if (model != null && !_isListUpdating)
+            if (model != null)
             {
                 dispatcher.Dispatch(NEW_SELECTION, model);
+            }
+            else
+            {
+                dispatcher.Dispatch(NONE_SELECTION, model);
             }
         }
     }

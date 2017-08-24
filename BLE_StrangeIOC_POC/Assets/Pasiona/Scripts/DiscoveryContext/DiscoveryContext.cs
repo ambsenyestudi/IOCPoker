@@ -43,6 +43,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext
             commandBinder.Bind(BLE_Events.BLE_START_SCANNING).To<StartScanningCommand>();
             commandBinder.Bind(BLE_Events.BLE_STOP_SCANNING).To<StopScanningCommand>();
             commandBinder.Bind(ApplicationEvents.DEVICE_SELECTED).To<DeviceSelectedCommand>();
+            commandBinder.Bind(ApplicationEvents.NO_DEVICE_SELECTED).To<NoDeviceSelectedCommand>();
 
         }
     }

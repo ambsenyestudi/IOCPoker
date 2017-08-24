@@ -18,7 +18,6 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
         private RectTransform _textRectTransform;
         private string manageModelName(DeviceModel model)
         {
-            Debug.Log("geting model name " + model.Name);
             string modelName = model.Name;
             if (string.IsNullOrEmpty(model.Name))
             {

@@ -79,7 +79,15 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Implementation
             {
                 InitializeBridge();
             }
-            startScanningBLE();
+            if(Application.platform == RuntimePlatform.WindowsEditor)
+            {
+                fakeScanForDevices();
+            }
+            else
+            {
+                startScanningBLE();
+            }
+            
         }
         private void startScanningBLE()
         {

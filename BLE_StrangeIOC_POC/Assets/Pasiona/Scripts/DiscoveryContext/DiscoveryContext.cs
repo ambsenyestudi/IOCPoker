@@ -32,7 +32,8 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext
             mediationBinder.Bind<AppStatusView>().To<AppStatusMediator>();
             mediationBinder.Bind<ScanBtnView>().To<ScanBtnMediator>();
             mediationBinder.Bind<EventLogView>().To<EventLogMediator>();
-            
+            mediationBinder.Bind<AvailableDeviceListView>().To<AvailableDeviceListMediator>();
+
             //StartCommand
             //commandBinder.Bind(ContextEvent.START).To<StartAppCommand>().To<StartGameCommand>().Once().InSequence();
             commandBinder.Bind(ContextEvent.START).To<StartAppCommand>().Once();

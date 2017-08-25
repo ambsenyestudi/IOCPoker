@@ -14,8 +14,17 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
         //This script gos in the Content Child of the ScrollView
         public Text text;
         private string log = String.Empty;
+        private ScrollRect _scrollRect;
         private RectTransform _contentRectTransform;
         private RectTransform _textRectTransform;
+        internal void Init()
+        {
+            _scrollRect = gameObject.GetComponentsInParent(typeof(ScrollRect)).FirstOrDefault() as ScrollRect;
+                
+            _textRectTransform = text.GetComponent<RectTransform>();
+            _contentRectTransform = gameObject.GetComponent<RectTransform>();
+            _contentRectTransform.sizeDelta = new Vector2(0, _textRectTransform.rect.height);
+        }
         private string manageModelName(DeviceModel model)
         {
             string modelName = model.Name;
@@ -37,19 +46,23 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
             newLog += string.Format("({0}): {1}", buildNowTimeString(), info);
             return newLog;
         }
-
-        internal void Init()
-        {
-            _textRectTransform = text.GetComponent<RectTransform>();
-            _contentRectTransform = gameObject.GetComponent<RectTransform>();
-            _contentRectTransform.sizeDelta = new Vector2(0, _textRectTransform.rect.height);
-        }
-
+        
         public void DeviceDiscoveredEvent(DeviceModel model)
         {
             var modelLogLine = string.Format("Device {0} discovered", manageModelName(model));
             UpdateEventLog(modelLogLine);
         }
+        public float figureScrollPosition()
+        {
+            int lineCount = log.Split('\n').Length;
+            float currTextHeight = lineCount * 35f;
+            float scrollHeight = _contentRectTransform.sizeDelta.y;
+            float scrollPos = 1.15f - (currTextHeight / scrollHeight);
+            string locution = string.Format("Height is: text {0}, scroll: {1}, scroll pos {2}", currTextHeight, scrollHeight, scrollPos);
+            Debug.Log(locution);
+            return scrollPos;
+        }
+
         public void UpdateEventLog(string currlog, bool isBlockTitle = false, bool isDoubleSpaceNeeded = false)
         {
             currlog = buildLogLine(currlog);
@@ -64,6 +77,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
             }
             log += currlog;
             text.text = log;
+            _scrollRect.verticalNormalizedPosition = figureScrollPosition();
         }
     }
 }

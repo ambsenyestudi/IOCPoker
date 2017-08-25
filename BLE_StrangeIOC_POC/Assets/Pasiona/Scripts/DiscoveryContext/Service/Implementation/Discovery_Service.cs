@@ -12,7 +12,8 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Implementation
 {
     public class Discovery_Service : IDiscovery_Service
     {
-
+        [Inject]
+        public IBLE_Factory BLE_Factory { get; set; }
         [Inject]
         public IEventDispatcher Dispatcher { get; set; }
 
@@ -21,20 +22,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Implementation
         {
 
 
-            //Determine which native IBleBridge to use based on the runtime platform; Android or iOS
-            switch (Application.platform)
-            {
-                case RuntimePlatform.Android:
-                    _bleBridge = new AndroidBleBridge();
-                    break;
-                case RuntimePlatform.IPhonePlayer:
-                    _bleBridge = new iOSBleBridge();
-                    break;
-                default:
-                    _bleBridge = new DummyBleBridge(); //modify this class if you want to emulate ble interaction in the editor...
-                    break;
-            }
-
+            _bleBridge = BLE_Factory.DefaultBleBridge;
             //Startup the native side of the code and include our callbacks...
             _bleBridge.Startup(true, this.StartupAction, this.ErrorAction, this.StateUpdateAction, this.DidUpdateRssiAction);
 

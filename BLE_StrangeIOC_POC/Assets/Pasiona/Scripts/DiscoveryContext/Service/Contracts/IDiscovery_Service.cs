@@ -10,6 +10,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Contracts
     public interface IDiscovery_Service
     {
         void InitializeBridge();
+        IBLE_Factory BLE_Factory { get; set; }
         IEventDispatcher Dispatcher { get; set; }
         void StartScanning();
         void StopScanning();

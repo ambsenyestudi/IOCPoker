@@ -23,9 +23,10 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext
 
         protected override void mapBindings()
         {
-            
+
             //Models & Services
-           
+
+            injectionBinder.Bind<IBLE_Factory>().To<BLE_Factory>().ToSingleton();
             injectionBinder.Bind<IDiscovery_Service>().To<Discovery_Service>().ToSingleton();
             injectionBinder.Bind<IConnectToDeviceService>().To<ConnectToDeviceService>().ToSingleton();
 

@@ -14,6 +14,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Implementation
     {
         [Inject]
         public IEventDispatcher Dispatcher { get; set; }
+
         private DeviceModel _selectedDevice;
         public DeviceModel SelectedDevice
         {
@@ -35,11 +36,25 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Implementation
                 }
             }
         }
+        private void connectToSelectedDevice()
+        {
+            bool isConnectionPossible = _selectedDevice != null;
+            if (_selectedDevice.ID != null)
+            {
+                /*
+                bleBridge.ConnectToPeripheralWithIdentifier(deviceId, this.ConnectedPeripheralAction, this.DiscoveredServiceAction,
+                                                            this.DiscoveredCharacteristicAction, this.DiscoveredDescriptorAction, this.DisconnectedPeripheralAction);
+                */
+            }
+            else
+            {
 
+            }
+        }
         public bool EstablishConnection()
         {
-            bool isConnectionSuccesfull = _selectedDevice != null;
-            if (isConnectionSuccesfull)
+            bool isConnectionPossible = _selectedDevice != null;
+            if (isConnectionPossible)
             {
                 Dispatcher.Dispatch(BLE_Events.BLE_TRYING_TO_ESTABLISH_CONNECTION, _selectedDevice);
                 Debug.Log(string.Format("Trying to establish Connection to {0}", _selectedDevice.GetPrettyName()));
@@ -48,7 +63,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Implementation
             {
                 Debug.Log("(Warnning) You must choose a device to connect to ");
             }
-            return isConnectionSuccesfull;
+            return isConnectionPossible;
         }
     }
 }

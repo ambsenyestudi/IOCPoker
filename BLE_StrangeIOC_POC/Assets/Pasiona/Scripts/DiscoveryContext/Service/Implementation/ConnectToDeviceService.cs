@@ -62,23 +62,29 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Implementation
             }
         }
 
-        private void DisconnectedPeripheralAction(string arg1, string arg2)
+        private void DisconnectedPeripheralAction(string peripheralId, string name)
         {
-            //TODO fire Disconnection event
+            string msg = string.Format("Device {0} is Disconnected now", name);
+            Dispatcher.Dispatch(BLE_Events.BLE_DEVICE_DISCONNECTED, msg);
         }
 
-        private void DiscoveredDescriptorAction(string arg1, string arg2, string arg3, string arg4)
+        private void DiscoveredDescriptorAction(string peripheralId, string serviceName, string characteristic, string descriptor)
         {
-            //TODO fire ConnectionUpdate event
+
+            string msg = string.Format("New descriptor discovered:{4} for charasteristic{3} for service {0}, for {1}", serviceName, SelectedDevice.GetPrettyName(), characteristic);
+            Dispatcher.Dispatch(BLE_Events.BLE_CONNECTION_STATE_UPDATE, msg);
         }
 
-        private void DiscoveredCharacteristicAction(string arg1, string arg2, string arg3)
+        private void DiscoveredCharacteristicAction(string peripheralId, string serviceName, string characteristic)
         {
-            //TODO fire ConnectionUpdate event
+            string msg = string.Format("New charasteristic discovered: {3} for service {0}, for {1}", serviceName, SelectedDevice.GetPrettyName(), characteristic);
+            Dispatcher.Dispatch(BLE_Events.BLE_CONNECTION_STATE_UPDATE, msg);
         }
 
-        private void DiscoveredServiceAction(string arg1, string arg2)
+        private void DiscoveredServiceAction(string peripheralId, string serviceName)
         {
+            string msg = string.Format("New service discovered: {0}, for {1}", serviceName, SelectedDevice.GetPrettyName());
+            Dispatcher.Dispatch(BLE_Events.BLE_CONNECTION_STATE_UPDATE, msg);
             //TODO fire ConnectionUpdate event
         }
 

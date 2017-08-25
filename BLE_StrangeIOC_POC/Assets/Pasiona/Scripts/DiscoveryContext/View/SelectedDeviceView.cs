@@ -22,30 +22,54 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
             _dropDown = gameObject.GetComponent<Dropdown>();
             updateOnSelected(true);
         }
-
+        private bool isInDeviceList(DeviceModel model)
+        {
+            bool isFound = false;
+            int count = 0;
+            
+            while (count<_deviceList.Count && !isFound)
+            {
+                DeviceModel currDevice = _deviceList[count];
+                if (currDevice != null)
+                {
+                    isFound = currDevice.ID != model.ID;
+                    
+                }
+                count++;
+            }
+            
+            return isFound;
+        }
         internal void UpdateList(DeviceModel model)
         {
             updateOnSelected(false);
             _isListUpdating = true;
-            _deviceList.Add(model);
-            _dropDown.options.Clear();
-            foreach (var currModel in _deviceList)
+            //id discrimination not working
+            /*
+            if (!isInDeviceList(model))
             {
-                if (currModel == null)
+            */
+                _deviceList.Add(model);
+                _dropDown.options.Clear();
+                foreach (var currModel in _deviceList)
                 {
-                    _dropDown.options.Add(new Dropdown.OptionData() { text = "None" });
+                    if (currModel == null)
+                    {
+                        _dropDown.options.Add(new Dropdown.OptionData() { text = "None" });
+                    }
+                    else
+                    {
+                        _dropDown.options.Add(new Dropdown.OptionData() { text = currModel.GetPrettyName() });
+                    }
                 }
-                else
-                {
-                    _dropDown.options.Add(new Dropdown.OptionData() { text = currModel.GetPrettyName() });
-                }
-            }
-            
-            _dropDown.value = 1;
-            _dropDown.value = 0;
-            updateOnSelected(true);
+
+                _dropDown.value = 1;
+                _dropDown.value = 0;
+                updateOnSelected(true);
+            //}
             _isListUpdating = false;
         }
+
         private void updateOnSelected(bool isListenning)
         {
             if (isListenning)

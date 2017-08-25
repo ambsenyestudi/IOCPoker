@@ -17,6 +17,8 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Controller.Events
         public const string BLE_NO_DEVICE_FOR_CONNECTION = "BLE_NO_DEVICE_FOR_CONNECTION";
         public const string BLE_TRYING_TO_ESTABLISH_CONNECTION = "BLE_TRYING_TO_ESTABLISH_CONNECTION";
         public const string BLE_CONNECTION_ESTABLISHED = "BLE_CONNECTION_ESTABLISHED";
+        public const string BLE_CONNECTION_STATE_UPDATE = "BLE_CONNECTION_STATE_UPDATE";
+        public const string BLE_DEVICE_DISCONNECTED = "BLE_DEVICE_DISCONNECTED";
         public const string BLE_ERROR = "BLE_ERROR";
         public const string BLE_UPDATED = "BLE_UPDATED";
     }

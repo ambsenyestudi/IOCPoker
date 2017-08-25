@@ -22,6 +22,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
             dispatcher.UpdateListener(isListening, BLE_Events.BLE_ERROR, onStatusInfoRecieved);
             dispatcher.UpdateListener(isListening, BLE_Events.BLE_TRYING_TO_ESTABLISH_CONNECTION, onTryingToEstablishConnection);
             dispatcher.UpdateListener(isListening, BLE_Events.BLE_CONNECTION_ESTABLISHED, onStatusInfoRecieved);
+            dispatcher.UpdateListener(isListening, BLE_Events.BLE_CONNECTION_STATE_UPDATE, onStatusInfoRecieved);
         }
 
         private void onTryingToEstablishConnection(IEvent payload)

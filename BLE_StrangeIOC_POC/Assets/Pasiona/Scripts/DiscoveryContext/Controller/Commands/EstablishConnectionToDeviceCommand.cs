@@ -17,13 +17,18 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Controller.Commands
         private void updateListeners(bool isListening)
         {
             ConnectionService.Dispatcher.UpdateListener(isListening, BLE_Events.BLE_TRYING_TO_ESTABLISH_CONNECTION, OnConnectionStarting);
-            
+            ConnectionService.Dispatcher.UpdateListener(isListening, BLE_Events.BLE_CONNECTION_ESTABLISHED, OnConnectionEstablished);
+        }
+
+        private void OnConnectionEstablished(IEvent payload)
+        {
+            dispatcher.Dispatch(BLE_Events.BLE_CONNECTION_ESTABLISHED, payload.data);
+            updateListeners(false);
         }
 
         public void OnConnectionStarting(IEvent payload)
         {
             dispatcher.Dispatch(BLE_Events.BLE_TRYING_TO_ESTABLISH_CONNECTION, payload.data);
-            updateListeners(false);
         }
         public override void Execute()
         {

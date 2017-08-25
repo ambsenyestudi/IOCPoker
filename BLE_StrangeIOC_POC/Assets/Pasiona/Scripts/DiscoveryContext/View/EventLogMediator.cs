@@ -21,12 +21,13 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
             dispatcher.UpdateListener(isListening, BLE_Events.BLE_READY, onStatusInfoRecieved);
             dispatcher.UpdateListener(isListening, BLE_Events.BLE_ERROR, onStatusInfoRecieved);
             dispatcher.UpdateListener(isListening, BLE_Events.BLE_TRYING_TO_ESTABLISH_CONNECTION, onTryingToEstablishConnection);
+            dispatcher.UpdateListener(isListening, BLE_Events.BLE_CONNECTION_ESTABLISHED, onStatusInfoRecieved);
         }
 
         private void onTryingToEstablishConnection(IEvent payload)
         {
             DeviceModel model = payload.data as DeviceModel;
-            string message = string.Format("Trying to establish data to {0}", model.GetPrettyName());
+            string message = string.Format("Trying to establish connection to {0}", model.GetPrettyName());
             View.UpdateEventLog(message, true);
         }
 

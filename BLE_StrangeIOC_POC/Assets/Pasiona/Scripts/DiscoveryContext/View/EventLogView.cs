@@ -58,8 +58,6 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
             float currTextHeight = lineCount * 35f;
             float scrollHeight = _contentRectTransform.sizeDelta.y;
             float scrollPos = 1.15f - (currTextHeight / scrollHeight);
-            string locution = string.Format("Height is: text {0}, scroll: {1}, scroll pos {2}", currTextHeight, scrollHeight, scrollPos);
-            Debug.Log(locution);
             return scrollPos;
         }
 

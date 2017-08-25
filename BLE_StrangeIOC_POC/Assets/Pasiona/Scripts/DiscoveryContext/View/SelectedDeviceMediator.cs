@@ -40,7 +40,6 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.View
         private void onDeviceDiscovered(IEvent payload)
         {
             DeviceModel model = payload.data as DeviceModel;
-            Debug.Log("new DEVICE DISCOVERED");
             View.UpdateList(model);
         }
     }

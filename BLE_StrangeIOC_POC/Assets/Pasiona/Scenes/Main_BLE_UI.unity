@@ -1725,7 +1725,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 12420791}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.13274707
+  m_Size: 0.21930066
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2994,6 +2994,7 @@ GameObject:
   - component: {fileID: 1598997225}
   - component: {fileID: 1598997224}
   - component: {fileID: 1598997223}
+  - component: {fileID: 1598997226}
   m_Layer: 0
   m_Name: ConnectBtn
   m_TagString: Untagged
@@ -3094,6 +3095,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1598997221}
+--- !u!114 &1598997226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1598997221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4090e67866c9ee7479195483a1620ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScanButton: {fileID: 1598997223}
 --- !u!1 &1644773857
 GameObject:
   m_ObjectHideFlags: 0
@@ -3478,7 +3491,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 169408859}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3789,7 +3802,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 412907611}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.47802135
+  m_Size: 0.7953845
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

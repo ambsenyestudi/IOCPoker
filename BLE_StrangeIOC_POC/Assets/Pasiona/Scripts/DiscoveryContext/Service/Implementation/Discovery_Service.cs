@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Implementation
 {
-    public class BLE_Service : IBLE_Service
+    public class Discovery_Service : IDiscovery_Service
     {
 
         [Inject]

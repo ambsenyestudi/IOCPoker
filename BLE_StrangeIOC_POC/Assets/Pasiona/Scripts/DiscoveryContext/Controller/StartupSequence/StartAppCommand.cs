@@ -18,7 +18,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Controller.StartupSequence
         [Inject(ContextKeys.CONTEXT)]
         public IContext context { get; set; }
         [Inject]
-        public IBLE_Service BLE_Service { get; set; }
+        public IDiscovery_Service BLE_Service { get; set; }
         private void updateListeners(bool isListening)
         {
             BLE_Service.Dispatcher.UpdateListener(isListening, BLE_Events.BLE_READY, (Payload) => {

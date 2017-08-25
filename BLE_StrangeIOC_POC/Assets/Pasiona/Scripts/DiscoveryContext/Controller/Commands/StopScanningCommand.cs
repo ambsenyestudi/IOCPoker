@@ -10,7 +10,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Controller.Commands
     public class StopScanningCommand : EventCommand
     {
         [Inject]
-        public IBLE_Service BLE_Service { get; set; }
+        public IDiscovery_Service BLE_Service { get; set; }
         public override void Execute()
         {
             BLE_Service.StopScanning();

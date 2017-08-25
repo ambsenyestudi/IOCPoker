@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Commands\DeviceSelectedCommand.cs" />
+     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Commands\EstablishConnectionToDeviceCommand.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Commands\NoDeviceSelectedCommand.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Commands\StartScanningCommand.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Controller\Commands\StopScanningCommand.cs" />
@@ -61,12 +62,16 @@
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\DiscoveryContext.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\DiscoveryRoot.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Model\DeviceModel.cs" />
-     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Service\Contracts\IBLE_Service.cs" />
-     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Service\Implementation\BLE_Service.cs" />
+     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Service\Contracts\IConnectToDeviceService.cs" />
+     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Service\Contracts\IDiscovery_Service.cs" />
+     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Service\Implementation\ConnectToDeviceService.cs" />
+     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\Service\Implementation\Discovery_Service.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\AppStatusMediator.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\AppStatusView.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\AvailableDeviceListMediator.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\AvailableDeviceListView.cs" />
+     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\ConnectBtnMediator.cs" />
+     <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\ConnectBtnView.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\EventLogMediator.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\EventLogView.cs" />
      <Compile Include="Assets\Pasiona\Scripts\DiscoveryContext\View\ScanBtnMediator.cs" />

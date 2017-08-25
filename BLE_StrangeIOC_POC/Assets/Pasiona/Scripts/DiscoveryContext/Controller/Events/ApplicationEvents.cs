@@ -11,5 +11,6 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Controller.Events
         public const string SCANNING_UPDATE = "SCANNING_UPDATE";
         public const string DEVICE_SELECTED = "DEVICE_SELECTED";
         public const string NO_DEVICE_SELECTED = "NO_DEVICE_SELECTED";
+        public const string ESTABLISH_CONNECTION_TO_DEVICE = "ESTABLISH_CONNECTION_TO_DEVICE";
     }
 }

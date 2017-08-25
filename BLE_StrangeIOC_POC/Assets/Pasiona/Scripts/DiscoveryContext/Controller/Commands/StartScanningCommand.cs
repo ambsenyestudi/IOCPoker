@@ -12,15 +12,15 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Controller.Commands
     public class StartScanningCommand : EventCommand
     {
         [Inject]
-        public IBLE_Service BLE_Service { get; set; }
+        public IDiscovery_Service DiscoveryService { get; set; }
         private void updateListeners(bool isListening)
         {
-            BLE_Service.Dispatcher.UpdateListener(isListening, BLE_Events.BLE_DEVICE_DISCOVERED, onDeviceDiscovered);
-            BLE_Service.Dispatcher.UpdateListener(isListening, BLE_Events.BLE_STOPPED_SCANNING, onStoppedScanning);
-            BLE_Service.Dispatcher.UpdateListener(isListening, BLE_Events.BLE_READY, (Payload) => {
+            DiscoveryService.Dispatcher.UpdateListener(isListening, BLE_Events.BLE_DEVICE_DISCOVERED, onDeviceDiscovered);
+            DiscoveryService.Dispatcher.UpdateListener(isListening, BLE_Events.BLE_STOPPED_SCANNING, onStoppedScanning);
+            DiscoveryService.Dispatcher.UpdateListener(isListening, BLE_Events.BLE_READY, (Payload) => {
                 dispatcher.Dispatch(BLE_Events.BLE_READY, Payload.data);
             });
-            BLE_Service.Dispatcher.UpdateListener(isListening, BLE_Events.BLE_ERROR, (Payload) => {
+            DiscoveryService.Dispatcher.UpdateListener(isListening, BLE_Events.BLE_ERROR, (Payload) => {
                 dispatcher.Dispatch(BLE_Events.BLE_ERROR, Payload.data);
             });
         }
@@ -38,12 +38,10 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Controller.Commands
 
         public override void Execute()
         {
-
-            dispatcher.Dispatch(BLE_Events.BLE_STARTED_SCANNING);
             updateListeners(true);
-            BLE_Service.StartScanning();
-
-
+            dispatcher.Dispatch(BLE_Events.BLE_STARTED_SCANNING);
+            DiscoveryService.StartScanning();
+           
         }
     }
 }

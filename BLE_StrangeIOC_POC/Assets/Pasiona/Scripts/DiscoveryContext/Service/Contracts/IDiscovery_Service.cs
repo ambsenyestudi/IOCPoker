@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Contracts
 {
-    public interface IBLE_Service
+    public interface IDiscovery_Service
     {
         void InitializeBridge();
         IEventDispatcher Dispatcher { get; set; }

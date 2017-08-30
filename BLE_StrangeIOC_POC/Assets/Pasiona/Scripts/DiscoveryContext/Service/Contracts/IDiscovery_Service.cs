@@ -11,11 +11,9 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Contracts
     {
         void InitializeBridge();
         IBLE_Factory BLE_Factory { get; set; }
+        IDeviceTrackingService DeviceTrackingService { get; set; }
         IEventDispatcher Dispatcher { get; set; }
         void StartScanning();
         void StopScanning();
-        bool ConnectToDevice(DeviceModel deviceModel);
-
-        void DisconnectFromDevice();
     }
 }

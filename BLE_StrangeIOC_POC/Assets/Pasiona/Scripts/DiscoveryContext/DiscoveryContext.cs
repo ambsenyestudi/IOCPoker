@@ -29,6 +29,7 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext
             injectionBinder.Bind<IBLE_Factory>().To<BLE_Factory>().ToSingleton();
             injectionBinder.Bind<IDiscovery_Service>().To<Discovery_Service>().ToSingleton();
             injectionBinder.Bind<IConnectToDeviceService>().To<ConnectToDeviceService>().ToSingleton();
+            injectionBinder.Bind<IDeviceTrackingService>().To<DeviceTrackingService>().ToSingleton();
 
             //ViewMediator
             mediationBinder.Bind<AppStatusView>().To<AppStatusMediator>();

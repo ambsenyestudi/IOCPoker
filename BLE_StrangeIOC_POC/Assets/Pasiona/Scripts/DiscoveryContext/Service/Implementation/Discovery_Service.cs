@@ -16,6 +16,8 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Implementation
         public IBLE_Factory BLE_Factory { get; set; }
         [Inject]
         public IEventDispatcher Dispatcher { get; set; }
+        [Inject]
+        public IDeviceTrackingService DeviceTrackingService { get; set; }
 
         private IBleBridge _bleBridge = null;
         public void InitializeBridge()
@@ -47,18 +49,6 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Implementation
         private void ErrorAction(string message)
         {
             Dispatcher.Dispatch(BLE_Events.BLE_ERROR, message);
-        }
-
-        public bool ConnectToDevice(DeviceModel deviceModel)
-        {
-            bool isConnected = false;
-            //TODO
-            return isConnected;
-        }
-
-        public void DisconnectFromDevice()
-        {
-            //TODO
         }
 
         public void StartScanning()
@@ -135,14 +125,19 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Implementation
 
         private void AdvertiseLocalNameAction(string peripherialID, string localName)
         {
-            Debug.Log("BLE_Service Local" + peripherialID + " " + localName);
-            var fakeModel = new DeviceModel
+            int previousCount = DeviceTrackingService.AvailableDevices.Count();
+            var model = new DeviceModel
             {
                 Name = localName,
                 ID = peripherialID
             };
-            Dispatcher.Dispatch(BLE_Events.BLE_DEVICE_DISCOVERED, fakeModel);
-        }
+            DeviceTrackingService.AddDeviceToList(model);
+            if (DeviceTrackingService.AvailableDevices.Count > previousCount)
+            {
+                Dispatcher.Dispatch(BLE_Events.BLE_DEVICE_DISCOVERED, model);
+            }
+        
+}
 
         public void StopScanning()
         {
@@ -169,5 +164,6 @@ namespace Assets.Pasiona.Scripts.DiscoveryContext.Service.Implementation
             };
             Dispatcher.Dispatch(BLE_Events.BLE_DEVICE_DISCOVERED, newFakeModel);
         }
+        
     }
 }

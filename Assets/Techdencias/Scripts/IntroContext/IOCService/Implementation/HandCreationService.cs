@@ -12,28 +12,52 @@ namespace Assets.Techdencias.Scripts.IntroContext.IOCService.Implementation
     {
         public GameObject CreateHand(string name, string firstCard, string secondCard, PlayerSeat playerSeat, int maxPlayers = 9)
         {
-            GameObject hand = createCards(name, firstCard, firstCard);
+            GameObject hand = createCards(name, firstCard, secondCard);
             float alpha = 0f;
+            float dirLenght = 0f;
+            //ToDo figure out elliptical rotation
             switch (maxPlayers)
             {
                 default:
                     float angle = 360f / (maxPlayers + 1);
                     //The closer to 90 smaller set, the coloser to 0 bigger setp
                     alpha = angle * ((int)(playerSeat) + 1);
-
+                    if (alpha > 0 && alpha < 37)
+                    {
+                        Debug.Log("First angel = " + alpha + " " + (alpha + (angle / 9)));
+                        alpha += angle / 1.75f;
+                        dirLenght = 7.5f;
+                    }
+                    else if (alpha > 37 && alpha < 110)
+                    {
+                        float offset = 2 * angle / 3;
+                        if (alpha < 90)
+                        {
+                            alpha += offset;
+                        }
+                        else
+                        {
+                            alpha -= offset;
+                        }
+                        dirLenght = 9f;
+                    }
+                    else 
+                    {
+                        
+                        if (alpha > 110 && alpha < 180)
+                        {
+                            //alpha -= 4 * angle / 5;
+                            Debug.Log("Last angel = " + alpha + " " + (alpha -(angle / 9)));
+                            alpha -= angle / 1.75f;
+                            dirLenght = 7.5f;
+                        }
+                        
+                    }
                     break;
             }
-            //ToDo figure out elliptical rotation
+            
             Vector3 seatPos = Quaternion.AngleAxis(alpha, Vector3.forward) * Vector3.up;
-            if (alpha > 37 && alpha < 110)
-            {
-                seatPos *= 12f;
-                Debug.Log("Corner");
-            }
-            else
-            {
-                seatPos *= 4f;
-            }
+            seatPos *= dirLenght;
 
             hand.transform.localPosition = seatPos;
             return hand;
